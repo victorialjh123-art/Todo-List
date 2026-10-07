@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>待办清单</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <p class="eyebrow">今日事项</p>
+      <h1>待办清单</h1>
+      <p class="subtitle" id="summary">还没有任务</p>
+    </header>
+
+    <form class="composer" id="composer">
+      <input
+        id="new-todo"
+        type="text"
+        maxlength="120"
+        placeholder="写下要做的事，回车添加"
+        autocomplete="off"
+        aria-label="新任务"
+      >
+      <button type="submit">添加</button>
+    </form>
+
+    <section class="panel" aria-label="任务列表">
+      <div class="toolbar">
+        <div class="filters" role="tablist" aria-label="筛选任务">
+          <button type="button" class="filter is-active" data-filter="all" role="tab" aria-selected="true">全部</button>
+          <button type="button" class="filter" data-filter="active" role="tab" aria-selected="false">未完成</button>
+          <button type="button" class="filter" data-filter="done" role="tab" aria-selected="false">已完成</button>
+        </div>
+        <button type="button" class="ghost" id="clear-done" hidden>清除已完成</button>
+      </div>
+
+      <ul class="list" id="list"></ul>
+      <p class="empty" id="empty" hidden></p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

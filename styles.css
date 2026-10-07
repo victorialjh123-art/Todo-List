@@ -1,0 +1,265 @@
+:root {
+  --ink: #1c1915;
+  --muted: #6f675e;
+  --line: #e4ddd2;
+  --paper: #f6f1e8;
+  --card: #fffdf8;
+  --accent: #c45c26;
+  --accent-deep: #9a4316;
+  --done: #8a8176;
+  --shadow: 0 18px 50px rgba(48, 32, 16, 0.08);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background:
+    radial-gradient(900px 420px at 10% -10%, #f3d7c4 0%, transparent 60%),
+    radial-gradient(700px 380px at 100% 0%, #efe4c8 0%, transparent 55%),
+    var(--paper);
+}
+
+.app {
+  width: min(680px, calc(100% - 32px));
+  margin: 48px auto 64px;
+}
+
+.header h1 {
+  margin: 4px 0 8px;
+  font-size: 42px;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.subtitle {
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+.composer {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.composer input,
+.item input[type="text"] {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+  outline: none;
+}
+
+.composer input {
+  flex: 1;
+  min-width: 0;
+  width: auto;
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+
+.composer input:focus,
+.item input[type="text"]:focus {
+  border-color: #d7a07a;
+}
+
+.composer button,
+.ghost,
+.icon-btn,
+.filter {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.composer button {
+  flex: 0 0 auto;
+  padding: 0 22px;
+  border-radius: 14px;
+  background: var(--ink);
+  color: #fffaf4;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.composer button:hover {
+  background: #322c26;
+}
+
+.panel {
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius);
+  background: rgba(255, 253, 248, 0.78);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.filters {
+  display: flex;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 999px;
+  background: #f3ece2;
+}
+
+.filter {
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+}
+
+.filter.is-active {
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 1px 4px rgba(48, 32, 16, 0.08);
+}
+
+.ghost {
+  padding: 7px 10px;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--accent-deep);
+}
+
+.ghost:hover {
+  background: #f8e7dc;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 6px;
+  border-bottom: 1px solid var(--line);
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+.check {
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid #c8bfb3;
+  border-radius: 50%;
+  background: transparent;
+  color: transparent;
+}
+
+.item.is-done .check {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+}
+
+.check::after {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 10px;
+  margin: 2px auto 0;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  cursor: text;
+}
+
+.item.is-done .label {
+  color: var(--done);
+  text-decoration: line-through;
+}
+
+.item input[type="text"] {
+  padding: 8px 10px;
+}
+
+.actions {
+  display: flex;
+  gap: 4px;
+}
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+}
+
+.icon-btn:hover {
+  background: #f3ece2;
+  color: var(--ink);
+}
+
+.icon-btn.danger:hover {
+  background: #fde8e4;
+  color: #b42318;
+}
+
+.empty {
+  margin: 28px 8px 18px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .app {
+    margin-top: 28px;
+  }
+
+  .header h1 {
+    font-size: 34px;
+  }
+
+  .toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
